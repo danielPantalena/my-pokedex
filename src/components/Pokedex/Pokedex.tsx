@@ -3,12 +3,12 @@ import React from 'react';
 import * as pokeApi from '../../services/ApiFunctions';
 import Pokemon from '../Pokemon/Pokemon';
 
+interface Props {}
+
 interface PokesObjs {
   name: string;
   url: string;
 }
-
-interface Props {}
 
 const Pokedex = (props: Props) => {
   const [pokemonsURLArray, setPokemonsURLArray] = React.useState<PokesObjs[]>([]);
