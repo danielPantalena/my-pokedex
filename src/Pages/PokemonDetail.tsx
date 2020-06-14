@@ -30,23 +30,39 @@ interface PokemonObj {
 }
 
 const PokemonDetail = ({ match }: RouteProps) => {
-  // const [pokemon, setPokemon] = React.useState<PokemonObj>();
-  const [pokemonURL, setPokemonURL] = React.useState<PokemonAPI>(Object);
+  const [loading, setLoading] = React.useState(true);
+  const [pokemon, setPokemon] = React.useState<PokemonObj>(Object);
+  const [pokemonURL, setPokemonURL] = React.useState<string>('');
 
+
+  // WTF???
   React.useEffect(() => {
-    let poke = null;
     pokeApi.getPokesURL().then((pokemonsURL: PokemonAPI[]) => {
-      poke = pokemonsURL.forEach((poke: PokemonAPI) => {
-        return poke.name === match.params.name && poke;
-      });
+      const url = String(
+        pokemonsURL.find(({ name }: PokemonAPI) => name === match.params.name)?.url, // Wtf??
+      );
+      setPokemonURL(url);
     });
   }, [match]);
 
   React.useEffect(() => {
-    pokeApi.getPokeDataFromURL(pokemonURL.url).then((response: PokemonObj) => console.log(response));
+    pokeApi.getPokeDataFromURL(pokemonURL).then((response: PokemonObj) => {
+      setPokemon(response);
+      setLoading(false);
+    });
   });
 
-  return <div className="container">Hello world</div>;
+  if (loading) return <div>Carregando...</div>;
+
+  return (
+    <div className="container">
+      <h3>{pokemon.name}</h3>
+      <img src={pokemon.sprites.back_default} alt="back" />
+      <img src={pokemon.sprites.front_default} alt="back" />
+      <img src={pokemon.sprites.front_shiny} alt="back" />
+      <img src={pokemon.sprites.back_shiny} alt="back" />
+    </div>
+  );
 };
 
 export default PokemonDetail;
