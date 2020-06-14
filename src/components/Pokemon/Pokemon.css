@@ -14,16 +14,18 @@
   width: 150px;
   height: 200px;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.603);
+  color: rgba(238, 238, 238, 0.925);
+  text-transform: capitalize;
 }
 
 .pokemon:hover {
   cursor: pointer;
-  transform: scale(1.02);
+  transform: scale(1.03);
   transition: all 0.2s;
   background-color: rgba(131, 131, 131, 0.979);
   color: white;
   box-shadow: 1px 1px 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 1.05rem;
 }
 
 .pokemon-id {
@@ -37,4 +39,8 @@
   border-radius: 10px 0 10px 0;
   top: 0px;
   left: 0;
+}
+
+.pokemon-id:hover {
+  color: white;
 }

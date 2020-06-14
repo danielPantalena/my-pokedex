@@ -1,33 +1,7 @@
 import React from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import * as pokeApi from '../services/ApiFunctions';
-
-interface PokemonAPI {
-  name: string;
-  url: string;
-}
-
-interface MatchParams {
-  name: string;
-}
-
-interface RouteProps extends RouteComponentProps<MatchParams> {}
-
-interface Sprites {
-  back_default: string;
-  back_shiny: string;
-  front_default: string;
-  front_shiny: string;
-}
-
-interface PokemonObj {
-  name: string;
-  abilities: string;
-  heigh: number;
-  weight: number;
-  id: number;
-  sprites: Sprites;
-}
+import { RouteProps, PokemonObj, PokemonAPI } from '../PokemonInterfaces';
 
 const PokemonDetail = ({ match }: RouteProps) => {
   const [loading, setLoading] = React.useState(true);
@@ -67,8 +41,9 @@ const PokemonDetail = ({ match }: RouteProps) => {
       <img src={pokemon.sprites.front_default} alt="back" />
       <img src={pokemon.sprites.front_shiny} alt="back" />
       <img src={pokemon.sprites.back_shiny} alt="back" />
+      <p>{pokemon.types.map(({ type }) => type.name).join(', ')}</p>
       <p>{pokemon.weight}</p>
-      <p>{pokemon.heigh}</p>
+      <p>{pokemon.height}</p>
     </div>
   );
 };

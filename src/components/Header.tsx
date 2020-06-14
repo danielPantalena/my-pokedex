@@ -5,9 +5,8 @@ const Header = () => {
   return (
     <React.Fragment>
       <header>
-        <img src="" alt="pokemon" />
         <nav>
-          <Button variant="secondary">Primary</Button>
+          HEADER
         </nav>
       </header>
     </React.Fragment>
