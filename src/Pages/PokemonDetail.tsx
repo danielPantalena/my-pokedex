@@ -34,13 +34,17 @@ const PokemonDetail = ({ match }: RouteProps) => {
   const [pokemon, setPokemon] = React.useState<PokemonObj>(Object);
   const [pokemonURL, setPokemonURL] = React.useState<string>('');
 
-
-  // WTF???
   React.useEffect(() => {
     pokeApi.getPokesURL().then((pokemonsURL: PokemonAPI[]) => {
-      const url = String(
-        pokemonsURL.find(({ name }: PokemonAPI) => name === match.params.name)?.url, // Wtf??
-      );
+      const url =
+        // find POSSIBLY RETURNS 'undefined'. So is necessary to use te 'OPTINIAL CHAINING'(?.) of TS.
+        //   when did't find, it will return 'undefined'.
+
+        // 'NULLISH COALESCING'(??) of TS, goes hand-in-hand with Optinial Chaining. When 'undefined' you can
+        //   returns another default value.
+
+        // Good example of OPITINAL CHAINING  and NULLISH COALESCING below :)
+        pokemonsURL.find(({ name }) => name === match.params.name)?.url ?? '';
       setPokemonURL(url);
     });
   }, [match]);
