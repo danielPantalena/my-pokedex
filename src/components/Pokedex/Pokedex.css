@@ -1,4 +1,8 @@
 .pokedex {
   display: flex;
   flex-flow: wrap;
+  margin: 0 auto;
+  padding: 5%;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, Link } from 'react-router-dom';
 import * as pokeApi from '../services/ApiFunctions';
 
 interface PokemonAPI {
@@ -50,21 +50,25 @@ const PokemonDetail = ({ match }: RouteProps) => {
   }, [match]);
 
   React.useEffect(() => {
+    if (pokemonURL === '') return;
     pokeApi.getPokeDataFromURL(pokemonURL).then((response: PokemonObj) => {
       setPokemon(response);
       setLoading(false);
     });
-  });
+  }, [pokemonURL]);
 
   if (loading) return <div>Carregando...</div>;
 
   return (
     <div className="container">
+      <Link to="/">VOLTAR</Link>
       <h3>{pokemon.name}</h3>
       <img src={pokemon.sprites.back_default} alt="back" />
       <img src={pokemon.sprites.front_default} alt="back" />
       <img src={pokemon.sprites.front_shiny} alt="back" />
       <img src={pokemon.sprites.back_shiny} alt="back" />
+      <p>{pokemon.weight}</p>
+      <p>{pokemon.heigh}</p>
     </div>
   );
 };

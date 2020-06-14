@@ -4,16 +4,37 @@
   align-items: center;
   justify-content: center;
   margin: 1%;
-  border: 1px solid black;
+  border-top: 0.5px solid #e4c439;
+  border-bottom: 0.5px solid #e4c439;
   border-radius: 10px;
-  padding: 2%;
-  box-shadow: -1px 1px 2px 1px black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #444;
+  position: relative;
+  padding: 0;
+  width: 150px;
+  height: 200px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.603);
 }
 
 .pokemon:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: all 0.2s;
-  color: yellow;
-  background-color: blue;
+  background-color: rgba(131, 131, 131, 0.979);
+  color: white;
+  box-shadow: 1px 1px 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.pokemon-id {
+  background: #cebf7b;
+  width: 3rem;
+  color: #333;
+  padding: 0.1rem;
+  font-weight: 700;
+  align-self: flex-start;
+  margin-top: 0;
+  border-radius: 10px 0 10px 0;
+  top: 0px;
+  left: 0;
 }

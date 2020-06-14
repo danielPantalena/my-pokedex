@@ -33,15 +33,16 @@ const Pokemon = (props: PokemonProps) => {
       setPokemon(resp);
       setLoading(false);
     });
-  }, []);
+  }, [props]);
 
   if (loading) return <div>Carregando...</div>;
 
   return (
     <React.Fragment>
       <Link to={`/${pokemon.name}`} className="pokemon">
-        <h3>{pokemon.name}</h3>
+        <p className="pokemon-id">{pokemon.id}</p>
         <img src={pokemon.sprites.front_default} alt="pokemon" />
+        <h3 className="pokemon-name">{pokemon.name}</h3>
       </Link>
     </React.Fragment>
   );
