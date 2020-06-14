@@ -3,16 +3,14 @@ import React from 'react';
 import * as pokeApi from '../../services/ApiFunctions';
 import Pokemon from '../Pokemon/Pokemon';
 
-interface Props {}
-
-interface PokesObjs {
+interface PokemonAPI {
   name: string;
   url: string;
 }
 
-const Pokedex = (props: Props) => {
-  const [pokemonsURLArray, setPokemonsURLArray] = React.useState<PokesObjs[]>([]);
-  const [isLoaded, setIsLoaded] = React.useState(false);
+const Pokedex = () => {
+  const [pokemonsURLArray, setPokemonsURLArray] = React.useState<PokemonAPI[]>([]);
+  const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     pokeApi.getPokesURL().then((pokemonsURL) => {
@@ -24,8 +22,8 @@ const Pokedex = (props: Props) => {
   if (isLoaded) {
     return (
       <React.Fragment>
-        {pokemonsURLArray.map((poke) => (
-          <Pokemon name={poke.name} />
+        {pokemonsURLArray.map((poke: PokemonAPI) => (
+          <Pokemon key={poke.name} pokeProps={poke} />
         ))}
       </React.Fragment>
     );

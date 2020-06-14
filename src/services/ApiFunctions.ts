@@ -7,6 +7,5 @@ export const getPokesURL = async () => {
 export const getPokeDataFromURL = async (pokeURL: string) => {
   const response = await fetch(pokeURL);
   const responseJSON = await response.json();
-  console.log(responseJSON);
   return responseJSON;
 };
