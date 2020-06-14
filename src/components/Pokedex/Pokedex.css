@@ -1,0 +1,4 @@
+.pokedex {
+  display: flex;
+  flex-flow: wrap;
+}

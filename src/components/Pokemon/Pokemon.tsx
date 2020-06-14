@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as apiFunctions from '../../services/ApiFunctions';
+import './Pokemon.css';
 
 interface PokemonProps {
   pokeProps: { name: string; url: string };
@@ -7,13 +9,9 @@ interface PokemonProps {
 
 interface Sprites {
   back_default: string;
-  back_female: string | null;
   back_shiny: string;
-  back_shiny_female: string | null;
   front_default: string;
-  front_female: string | null;
   front_shiny: string;
-  front_shiny_female: string | null;
 }
 
 interface PokemonObj {
@@ -27,14 +25,13 @@ interface PokemonObj {
 
 const Pokemon = (props: PokemonProps) => {
   const [pokemon, setPokemon] = useState<PokemonObj>(Object);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   React.useEffect(() => {
     const { url } = props.pokeProps;
     apiFunctions.getPokeDataFromURL(url).then((resp: PokemonObj) => {
       setPokemon(resp);
       setLoading(false);
-      ;
     });
   }, []);
 
@@ -42,7 +39,10 @@ const Pokemon = (props: PokemonProps) => {
 
   return (
     <React.Fragment>
-      <img src={pokemon.sprites.back_default} alt="pokemon" />
+      <Link to={`/${pokemon.name}`} className="pokemon">
+        <h3>{pokemon.name}</h3>
+        <img src={pokemon.sprites.front_default} alt="pokemon" />
+      </Link>
     </React.Fragment>
   );
 };

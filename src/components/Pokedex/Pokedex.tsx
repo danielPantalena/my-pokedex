@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as pokeApi from '../../services/ApiFunctions';
 import Pokemon from '../Pokemon/Pokemon';
+import './Pokedex.css';
 
 interface PokemonAPI {
   name: string;
@@ -22,9 +23,11 @@ const Pokedex = () => {
   if (isLoaded) {
     return (
       <React.Fragment>
-        {pokemonsURLArray.map((poke: PokemonAPI) => (
-          <Pokemon key={poke.name} pokeProps={poke} />
-        ))}
+        <div className="pokedex">
+          {pokemonsURLArray.map((poke: PokemonAPI) => (
+            <Pokemon key={poke.name} pokeProps={poke} />
+          ))}
+        </div>
       </React.Fragment>
     );
   }

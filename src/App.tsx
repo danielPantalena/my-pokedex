@@ -1,13 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Pokedex from './components/Pokedex/Pokedex';
-
+import PokemonDetail from './Pages/PokemonDetail'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Pokedex />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Pokedex} />
+          <Route path="/:name" component={PokemonDetail}/>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
