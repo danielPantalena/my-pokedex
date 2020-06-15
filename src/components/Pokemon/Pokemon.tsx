@@ -17,7 +17,7 @@ const Pokemon = (props: PokemonProps) => {
     });
   }, [props]);
 
-  if (loading) return <div>Carregando...</div>;
+  if (loading) return <></>;
 
   return (
     <React.Fragment>
