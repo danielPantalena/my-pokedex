@@ -1,8 +1,9 @@
 import React from 'react';
 
 import * as pokeApi from '../../services/ApiFunctions';
-import Pokemon from '../Pokemon/Pokemon';
+import Pokemon from '../../components/Pokemon/Pokemon';
 import './Pokedex.css';
+import TypeButton from '../../components/TypeButton';
 
 interface PokemonAPI {
   name: string;
@@ -23,6 +24,7 @@ const Pokedex = () => {
   if (isLoaded) {
     return (
       <React.Fragment>
+        <TypeButton type={'normal'} />
         <div className="pokedex">
           {pokemonsURLArray.map((poke: PokemonAPI) => (
             <Pokemon key={poke.name} pokeProps={poke} />

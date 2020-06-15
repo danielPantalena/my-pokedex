@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Pokedex from './components/Pokedex/Pokedex';
+import Pokedex from './Pages/Pokedex/Pokedex';
 import PokemonDetail from './Pages/PokemonDetail'
 
 const Routes = () => {
