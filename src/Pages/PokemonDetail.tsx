@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as pokeApi from '../services/ApiFunctions';
 import { RouteProps, PokemonObj, PokemonAPI } from '../PokemonInterfaces';
 
