@@ -18,13 +18,13 @@ const PokemonDetail = ({ match }: RouteProps) => {
         //   returns another default value.
 
         // Good example of OPITINAL CHAINING  and NULLISH COALESCING below :)
-        pokemonsURL.find(({ name }) => name === match.params.name)?.url ?? '';
+        pokemonsURL.find(({ name }) => name === match.params.name)?.url ?? 'URLnotFound';
       setPokemonURL(url);
     });
   }, [match]);
 
   React.useEffect(() => {
-    if (pokemonURL === '') return;
+    if (pokemonURL === 'URLnotFound') return;
     pokeApi.getPokeDataFromURL(pokemonURL).then((response: PokemonObj) => {
       setPokemon(response);
       setLoading(false);
