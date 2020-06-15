@@ -21,6 +21,15 @@ interface Types {
   type: Type;
 }
 
+interface Stat {
+  name: string;
+}
+
+interface Stats {
+  base_stat: number;
+  stat: Stat;
+}
+
 export interface PokemonAPI {
   name: string;
   url: string;
@@ -33,11 +42,13 @@ export interface PokemonProps {
 }
 
 export interface PokemonObj {
-  name: string;
   abilities: string;
+  base_experience: number;
   height: number;
-  weight: number;
   id: number;
+  name: string;
   sprites: Sprites;
+  stats: Stats[];
   types: Types[];
+  weight: number;
 }
