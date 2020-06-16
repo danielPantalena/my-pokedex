@@ -1,5 +1,5 @@
 img.logo {
-  margin: 0.2% 5% 0.2% 1%
+  margin: 0.2% 5% 0.2% 7%
 }
 
 div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link {
@@ -13,11 +13,20 @@ span.nav-link#navbarDropdown:hover {
 
 div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link:hover {
   transform: scale(1.05);
-  color: blue;
+  color: rgb(1, 1, 185);
 }
 
 span.nav-link#navbarDropdown:hover {
   transform: scale(1.05);
-  color: blue;
+  color: rgb(1, 1, 185);
+}
+
+div.dropdown-menu > a.dropdown-item {
+  transition: all 300ms;
+}
+
+div.dropdown-menu > a.dropdown-item:hover {
+  font-weight: 900;
+  color: rgb(1, 1, 185);
 }
 

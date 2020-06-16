@@ -29,6 +29,16 @@
   text-decoration: none;
 }
 
+.pokemon:active {
+  cursor: pointer;
+  transform: scale(0.95);
+  transition: all 0.2s;
+  background-color: rgba(131, 131, 131, 0.979);
+  color: white;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
 .pokemon-id {
   background: #cebf7b;
   width: 3rem;
