@@ -1,3 +1,24 @@
 .content {
   padding: 2% 5%;
 }
+
+.content span.link-to-back-text {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-left: 2%;
+}
+
+
+.content div.link-to-back {
+  transition: all 300ms;
+}
+
+.content div.link-to-back:hover {
+  transform: scale(1.02);
+  font-family: "Ubuntu", sans-serif;
+  color: aqua;
+  text-decoration: none;
+  border-bottom: none;
+}
+

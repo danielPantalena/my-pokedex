@@ -32,32 +32,31 @@ const Header = () => {
               <li className="nav-item active">
                 <a className="nav-link" target="blank" href="https://pokeapi.co/">
                   <i className="fas fa-database fa-2x"></i>
-                  PokeApi <span className="sr-only">(current)</span>
+                  <span>PokeApi</span>
                 </a>
               </li>
               <li className="nav-item active">
                 <a className="nav-link" target="blank" href="https://reactjs.org/">
                   <i className="fab fa-react fa-2x"></i>
-                  React
+                  <span>React</span>
                 </a>
               </li>
               <li className="nav-item active">
                 <a className="nav-link" target="blank" href="https://getbootstrap.com/">
                   <i className="fab fa-bootstrap fa-2x"></i>
-                  Bootstrap
+                  <span>Bootstrap</span>
                 </a>
               </li>
               <li className="nav-item dropdown">
                 <span
-                  className="nav-link dropdown-toggle active"
+                  className="nav-link dropdown-toggle active float-right"
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i className="fas fa-user-alt fa-2x"></i>
-                  danielPantalena
+                  <span>danielPantalena</span>
                 </span>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as pokeApi from '../../services/ApiFunctions';
 import { RouteProps, PokemonObj, PokemonAPI } from '../../PokemonInterfaces';
-import './PokemonDetail.css'
+import './PokemonDetail.css';
 
 // const TYPE_COLORS = {
 //   bug: 'green',
@@ -56,10 +56,13 @@ const PokemonDetail = ({ match }: RouteProps) => {
 
   return (
     <React.Fragment>
-      <div className="content" style={{height: '100vh'}}>
-      <Link to="/"className="text-white back-link">
-      <i className="fas fa-arrow-left"></i>VOLTAR
-      </Link>
+      <div className="content" style={{ height: '100vh' }}>
+        <Link to="/" className="text-white back-link">
+          <div className="link-to-back">
+            <i className="fas fa-arrow-left"></i>
+            <span className="link-to-back-text">Voltar</span>
+          </div>
+        </Link>
         <div className="col mt-3 pt-3">
           <div className="card">
             <div className="card-header">
