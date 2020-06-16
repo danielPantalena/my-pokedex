@@ -38,7 +38,7 @@ export interface PokemonAPI {
 export interface RouteProps extends RouteComponentProps<MatchParams> {}
 
 export interface PokemonProps {
-  pokeProps: { name: string; url: string };
+  name: string;
 }
 
 export interface PokemonObj {

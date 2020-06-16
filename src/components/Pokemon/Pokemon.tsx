@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as apiFunctions from '../../services/ApiFunctions';
 import './Pokemon.css';
-import { PokemonObj, PokemonProps } from "../../PokemonInterfaces";
-
+import { PokemonObj, PokemonProps } from '../../PokemonInterfaces';
 
 const Pokemon = (props: PokemonProps) => {
   const [pokemon, setPokemon] = useState<PokemonObj>(Object);
   const [loading, setLoading] = useState(true);
 
   React.useEffect(() => {
-    const { url } = props.pokeProps;
-    apiFunctions.getPokeDataFromURL(url).then((resp: PokemonObj) => {
+    const { name } = props;
+    apiFunctions.getPokeDataFromName(name).then((resp: PokemonObj) => {
       setPokemon(resp);
       setLoading(false);
     });

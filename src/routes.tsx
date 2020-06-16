@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Pokedex from './Pages/Pokedex/Pokedex';
-import PokemonDetail from './Pages/PokemonDetail'
+import PokemonDetail from './Pages/PokemonDetail/PokemonDetail'
 
 const Routes = () => {
   return (

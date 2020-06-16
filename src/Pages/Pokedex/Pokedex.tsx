@@ -3,19 +3,14 @@ import React from 'react';
 import * as pokeApi from '../../services/ApiFunctions';
 import Pokemon from '../../components/Pokemon/Pokemon';
 import './Pokedex.css';
-import TypeButton from '../../components/TypeButton';
-
-interface PokemonAPI {
-  name: string;
-  url: string;
-}
+import { PokemonAPI } from '../../PokemonInterfaces'
 
 const Pokedex = () => {
   const [pokemonsURLArray, setPokemonsURLArray] = React.useState<PokemonAPI[]>([]);
   const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    pokeApi.getPokesURL().then((pokemonsURL) => {
+    pokeApi.getPokesURL(151, 0).then((pokemonsURL) => {
       setPokemonsURLArray(pokemonsURL);
       setIsLoaded(true);
     });
@@ -24,10 +19,9 @@ const Pokedex = () => {
   if (isLoaded) {
     return (
       <React.Fragment>
-        <TypeButton type={'normal'} />
         <div className="pokedex">
           {pokemonsURLArray.map((poke: PokemonAPI) => (
-            <Pokemon key={poke.name} pokeProps={poke} />
+            <Pokemon key={poke.name} name={poke.name} />
           ))}
         </div>
       </React.Fragment>
