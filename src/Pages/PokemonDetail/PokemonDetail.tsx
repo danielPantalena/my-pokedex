@@ -56,9 +56,11 @@ const PokemonDetail = ({ match }: RouteProps) => {
 
   return (
     <React.Fragment>
-      <Link to="/">VOLTAR</Link>
-      <div className="content">
-        <div className="col">
+      <div className="content" style={{height: '100vh'}}>
+      <Link to="/"className="text-white back-link">
+      <i className="fas fa-arrow-left"></i>VOLTAR
+      </Link>
+        <div className="col mt-3 pt-3">
           <div className="card">
             <div className="card-header">
               <div className="row">

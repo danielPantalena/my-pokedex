@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.slim';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './Header.css';
 
 const Header = () => {
   return (
@@ -9,9 +10,10 @@ const Header = () => {
       <header>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <img
+            className="logo"
             src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo.png"
             alt=""
-            style={{ width: '200px'}}
+            style={{ width: '200px' }}
           />
           <button
             className="navbar-toggler"
@@ -29,16 +31,19 @@ const Header = () => {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
                 <a className="nav-link" target="blank" href="https://pokeapi.co/">
+                  <i className="fas fa-database fa-2x"></i>
                   PokeApi <span className="sr-only">(current)</span>
                 </a>
               </li>
               <li className="nav-item active">
                 <a className="nav-link" target="blank" href="https://reactjs.org/">
+                  <i className="fab fa-react fa-2x"></i>
                   React
                 </a>
               </li>
               <li className="nav-item active">
                 <a className="nav-link" target="blank" href="https://getbootstrap.com/">
+                  <i className="fab fa-bootstrap fa-2x"></i>
                   Bootstrap
                 </a>
               </li>
@@ -51,17 +56,30 @@ const Header = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
+                  <i className="fas fa-user-alt fa-2x"></i>
                   danielPantalena
                 </span>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" target="blank" href="https://danielpantalena.github.io">
+                  <a
+                    className="dropdown-item"
+                    target="blank"
+                    href="https://danielpantalena.github.io"
+                  >
                     Page
                   </a>
-                  <a className="dropdown-item" target="blank" href="https://www.linkedin.com/in/danielpantalena/">
+                  <a
+                    className="dropdown-item"
+                    target="blank"
+                    href="https://www.linkedin.com/in/danielpantalena/"
+                  >
                     LinkedIn
                   </a>
                   <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" target="blank" href="https://github.com/danielPantalena">
+                  <a
+                    className="dropdown-item"
+                    target="blank"
+                    href="https://github.com/danielPantalena"
+                  >
                     GitHub
                   </a>
                 </div>

@@ -1,0 +1,23 @@
+img.logo {
+  margin: 0.2% 5% 0.2% 1%
+}
+
+div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link {
+  margin: 0 20px;
+  transition: all 300ms;
+}
+
+span.nav-link#navbarDropdown:hover {
+  transition: all 300ms;
+}
+
+div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link:hover {
+  transform: scale(1.05);
+  color: blue;
+}
+
+span.nav-link#navbarDropdown:hover {
+  transform: scale(1.05);
+  color: blue;
+}
+
