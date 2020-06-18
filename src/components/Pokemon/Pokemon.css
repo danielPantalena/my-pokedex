@@ -29,7 +29,7 @@
   text-decoration: none;
 }
 
-.pokemon:active {
+h3.pokemon:active {
   cursor: pointer;
   transform: scale(0.95);
   transition: all 0.2s;

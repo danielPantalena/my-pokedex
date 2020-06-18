@@ -2,10 +2,16 @@ img.logo {
   margin: 0.2% 5% 0.2% 7%;
 }
 
+nav.navbar {
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+
 div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link {
   margin: 0 20px;
   transition: all 300ms;
   font-family: 'Ubuntu', sans-serif;
+  color: white;
 }
 
 div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link > span {
@@ -14,9 +20,9 @@ div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link > span {
 }
 
 
-
 span.nav-link#navbarDropdown {
   font-family: 'Ubuntu', sans-serif;
+  color: white
 }
 
 span.nav-link#navbarDropdown > span{
@@ -32,12 +38,12 @@ span.nav-link#navbarDropdown:hover {
 
 div.collapse > ul.navbar-nav > li.nav-item.active > a.nav-link:hover {
   transform: scale(1.03);
-  color: rgb(1, 1, 185);
+  color: rgb(0, 0, 197);
 }
 
 span.nav-link#navbarDropdown:hover {
   transform: scale(1.03);
-  color: rgb(1, 1, 185);
+  color: rgb(0, 0, 197);
 }
 
 div.dropdown-menu > a.dropdown-item {
@@ -48,5 +54,5 @@ div.dropdown-menu > a.dropdown-item {
 
 div.dropdown-menu > a.dropdown-item:hover {
   font-weight: 900;
-  color: rgb(1, 1, 185);
+  color: rgb(0, 0, 197);
 }

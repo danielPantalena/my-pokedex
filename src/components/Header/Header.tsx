@@ -7,8 +7,8 @@ import './Header.css';
 const Header = () => {
   return (
     <React.Fragment>
-      <header>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <header className="bg-black">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <img
             className="logo"
             src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo.png"
