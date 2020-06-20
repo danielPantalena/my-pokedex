@@ -16,11 +16,6 @@ interface Type {
   url: string;
 }
 
-interface Types {
-  slot: number;
-  type: Type;
-}
-
 interface Stat {
   name: string;
 }
@@ -51,4 +46,9 @@ export interface PokemonObj {
   stats: Stats[];
   types: Types[];
   weight: number;
+}
+
+export interface Types {
+  slot: number;
+  type: Type;
 }

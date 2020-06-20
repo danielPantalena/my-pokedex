@@ -1,28 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as pokeApi from '../../services/ApiFunctions';
-import { RouteProps, PokemonObj, PokemonAPI } from '../../PokemonInterfaces';
+import { RouteProps, PokemonObj, PokemonAPI, Types } from '../../PokemonInterfaces';
 import './PokemonDetail.css';
 
-// const TYPE_COLORS = {
-//   bug: 'green',
-//   dark: 'balck',
-//   dragon: 'organge',
-//   electric: 'yellow',
-//   fairy: 'pink',
-//   fighting: 'grey',
-//   fire: 'organge',
-//   flying: 'grey',
-//   ghost: 'purple',
-//   grass: 'green',
-//   ground: 'yellow',
-//   ice: 'light-blue',
-//   normal: 'grey',
-//   poison: 'purple',
-//   rock: 'grey',
-//   steel: 'grey',
-//   water: 'blue',
-// };
+const TYPE_COLORS = {
+  bug: 'b1c12e',
+  dark: '4f3a2d',
+  dragon: '755edf',
+  electric: 'fcbc17',
+  fairy: 'f4b1f4',
+  fighting: '823851d',
+  fire: 'e73b0c',
+  flying: 'a3b3f7',
+  ghost: '6060b2',
+  grass: '74c236',
+  ground: 'd3b257',
+  ice: 'a3e7fd',
+  normal: 'c8c4bc',
+  psychic: 'FF1493',
+  poison: '934594',
+  rock: 'b9a156',
+  steel: 'b5b5c3',
+  water: '3295f6',
+};
 
 const PokemonDetail = ({ match }: RouteProps) => {
   const [loading, setLoading] = React.useState(true);
@@ -52,6 +53,17 @@ const PokemonDetail = ({ match }: RouteProps) => {
     });
   }, [pokemonURL]);
 
+  
+  // You must validate the input to get values from TYPE_COLOR object.
+  const isValidTypeName = (type: string): type is keyof typeof TYPE_COLORS => {
+    return type in TYPE_COLORS;
+  };
+
+  const getTypeColor = (type: string) => {
+    if (!isValidTypeName(type)) throw Error('invalid type');
+    return `#${TYPE_COLORS[type]}`; // I could use "TYPE_COLORS[type]" because of the validation
+  };
+
   if (loading) return <div>Carregando...</div>;
 
   return (
@@ -68,19 +80,20 @@ const PokemonDetail = ({ match }: RouteProps) => {
             <div className="card-header">
               <div className="row">
                 <div className="col-5">
-                  <h3>
-                    #{`${pokemon.id}`}{' '}
-                    {pokemon.name.split('').map((char, i) => (i === 0 ? char.toUpperCase() : char))}
+                  <h3 className="pokemon-name">
+                    #{`${pokemon.id}`} {pokemon.name}
                   </h3>
                 </div>
                 <div className="col-7">
                   <div className="float-right">
-                    {pokemon.types.map(({ type }) => {
+                    {pokemon.types.map(({ type }: Types) => {
                       return (
-                        <span key={type.name} className="badge badge-primary badge-pill mr-1">
-                          {type.name
-                            .split('')
-                            .map((char, i) => (i === 0 ? char.toUpperCase() : char))}
+                        <span
+                          key={type.name}
+                          className="badge badge-primary badge-pill mr-1 type-name"
+                          style={{ backgroundColor: `${getTypeColor(type.name)}` }}
+                        >
+                          {type.name}
                         </span>
                       );
                     })}
@@ -95,9 +108,7 @@ const PokemonDetail = ({ match }: RouteProps) => {
                   <img src={pokemon.sprites.back_default} alt="a poke" />
                 </div>
                 <div className="col-md-9">
-                  <h4 className="mx-auto">
-                    {pokemon.name.split('').map((char, i) => (i === 0 ? char.toUpperCase() : char))}
-                  </h4>
+                  <h4 className="mx-auto pokemon-name">{pokemon.name}</h4>
 
                   {pokemon.stats.map(({ stat, base_stat }) => {
                     return (

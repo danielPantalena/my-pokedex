@@ -22,3 +22,11 @@
   border-bottom: none;
 }
 
+.pokemon-name {
+  text-transform: capitalize;
+}
+
+span.type-name {
+  text-transform: capitalize;
+}
+
