@@ -54,14 +54,14 @@ const PokemonDetail = ({ match }: RouteProps) => {
   }, [pokemonURL]);
 
   
-  // You must validate the input to get values from TYPE_COLOR object.
+  // You must validate the input to get values from TYPE_COLOR object with a unknow type.
   const isValidTypeName = (type: string): type is keyof typeof TYPE_COLORS => {
     return type in TYPE_COLORS;
   };
 
   const getTypeColor = (type: string) => {
-    if (!isValidTypeName(type)) throw Error('invalid type');
-    return `#${TYPE_COLORS[type]}`; // I could use "TYPE_COLORS[type]" because of the validation
+    if (!isValidTypeName(type)) throw Error(`${type} was NOT found as keyof TYPE_COLORS`);
+    return `#${TYPE_COLORS[type]}`; // I could use "TYPE_COLORS[type]" because of the validation.
   };
 
   if (loading) return <div>Carregando...</div>;
