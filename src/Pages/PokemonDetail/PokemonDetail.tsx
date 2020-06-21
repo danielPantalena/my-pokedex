@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as pokeApi from '../../services/ApiFunctions';
+import CardBody from '../../components/CardBody';
+
 import { RouteProps, PokemonObj, PokemonAPI, Types } from '../../PokemonInterfaces';
 import './PokemonDetail.css';
 
@@ -53,7 +55,6 @@ const PokemonDetail = ({ match }: RouteProps) => {
     });
   }, [pokemonURL]);
 
-  
   // You must validate the input to get values from TYPE_COLOR object with a unknow type.
   const isValidTypeName = (type: string): type is keyof typeof TYPE_COLORS => {
     return type in TYPE_COLORS;
@@ -101,37 +102,7 @@ const PokemonDetail = ({ match }: RouteProps) => {
                 </div>
               </div>
             </div>
-            <div className="card-body">
-              <div className="row align-items-center">
-                <div className="col-md-3">
-                  <img src={pokemon.sprites.front_default} alt="a poke" />
-                  <img src={pokemon.sprites.back_default} alt="a poke" />
-                </div>
-                <div className="col-md-9">
-                  <h4 className="mx-auto pokemon-name">{pokemon.name}</h4>
-
-                  {pokemon.stats.map(({ stat, base_stat }) => {
-                    return (
-                      <div key={stat.name} className="row align-items-center">
-                        <div className="col-12 col-md-3">{stat.name.toUpperCase()}</div>
-                        <div className="col-12 col-md-9">
-                          <div className="progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `${base_stat}%`,
-                              }}
-                            >
-                              <small>{base_stat}</small>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+            <CardBody pokemon={pokemon} />
           </div>
         </div>
       </div>
