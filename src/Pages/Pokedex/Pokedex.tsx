@@ -12,11 +12,14 @@ const Pokedex = () => {
 
   React.useEffect(() => {
     pokeApi.getPokesURL(151, 0).then((pokemonsURL) => {
+      console.log('useEffect');
       setPokemonsURLArray(pokemonsURL);
       setIsLoaded(true);
     });
   }, []);
 
+  console.log('Mounted');
+  
   if (isLoaded) {
     return (
       <React.Fragment>
