@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Pokedex from './Pages/Pokedex/Pokedex';
-import PokemonDetail from './Pages/PokemonDetail/PokemonDetail'
+import PokemonDetail from './Pages/PokemonDetail/PokemonDetail';
 
 const Routes = () => {
   return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Pokedex} />
-          <Route path="/:name" component={PokemonDetail} />
-        </Switch>
-      </BrowserRouter>
+    <HashRouter>
+      <Switch>
+        <Route exact path="/" component={Pokedex} />
+        <Route path="/:name" component={PokemonDetail} />
+      </Switch>
+    </HashRouter>
   );
 };
 
