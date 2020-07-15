@@ -1,17 +1,21 @@
 import React from 'react';
-import { PokemonObj } from '../PokemonInterfaces';
+import { PokemonObj } from '../../PokemonInterfaces';
+
+import './CardBody.css'
 
 interface CardBodyProps {
   pokemon: PokemonObj;
 }
 
 const CardBody = ({ pokemon }: CardBodyProps) => {
+  console.log(pokemon);
+  
   return (
     <div className="card-body">
       <div className="row align-items-center">
         <div className="col-md-3">
-          <img src={pokemon.sprites.front_default} alt="a poke" />
-          <img src={pokemon.sprites.back_default} alt="a poke" />
+          <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`} alt="a poke" />
+          {/* <img src={pokemon.sprites.back_default} alt="a poke" /> */}
         </div>
         <div className="col-md-9">
           <h4 className="mx-auto pokemon-name">{pokemon.name}</h4>

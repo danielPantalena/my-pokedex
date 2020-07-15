@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as pokeApi from '../../services/ApiFunctions';
-import CardBody from '../../components/CardBody';
+import CardBody from '../../components/CardBody/CardBody';
 
 import { RouteProps, PokemonObj, PokemonAPI, Types } from '../../PokemonInterfaces';
 import './PokemonDetail.css';
